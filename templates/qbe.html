@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <script src="static/jquery-3.5.1.min.js"></script>
+</head>
+<style>
+.content {
+    max-width: 500px;
+    margin: auto;
+}
+
+</style>
+<body>
+    <div class="content">
+        <p1><b>QBE</b></p1>
+        <br><br>
+        <form>
+            <table>
+                <tr>
+                    <td>
+                        <br>
+                        MySQL
+                    </td>
+                    <td>
+                        User <br>
+                        <input type="text">
+                    </td>
+                    <td>
+                        Password <br>
+                        <input type="text">
+                    </td>
+                    <td>
+                        Database <br>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <br>
+                        <button type="button" id="goBtn" onclick="showDB()">Go</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br><br>
+        <p1><b>Database Tables</b></p1>
+        <form class="showForm" id="showForm">
+            <table>
+                <tr>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <select>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                        
+                    </td>
+                </tr>
+                
+            </table>
+            <input type="submit" value="Get Skeletons">
+            <input type="reset" value="Reset Skeletons">
+        </form>
+
+        <br><br>
+        <p1><b>QBE Interfaces</b></p1>
+        <script>
+            function showDB(){
+                var text = document.getElementById("showForm");
+                if (text.style.display === "none"){
+                    text.style.display = "block";
+                } else{
+                    text.style.display = "none";
+                }
+            }
+            // var items = 0;
+            // function addItems(){
+            //     items++;
+
+            //     var html = "<form>";
+            //         html += "<table>" + items + "</table>";
+            //         html += "<table><input name='databases[]'></table>"
+            //         html += "<table><select name='options[]'></table>"
+            //     html +="<form>"
+                    
+            //     document.getElementById("showForm").insertTable().innerHTML = html;
+            // }
+        </script>
+    </div>
+    
+</body>
+</html>
