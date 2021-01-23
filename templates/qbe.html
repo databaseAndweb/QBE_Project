@@ -20,6 +20,19 @@ h4 {
 body {
   font-family: Arial, sans-serif;
 }
+
+.borderedtables {
+  border: 1px solid black;
+  table-layout: fixed;
+}
+
+.tableheader{
+	padding: 10px;
+	text-align: center;
+	font-weight: bold;
+	border: 1px solid black;
+}
+
 </style>
 <body>
 <hr style="height:.5px;background-color:black">
@@ -53,11 +66,11 @@ body {
         </form>
         <hr style="border-top: 1px dashed grey;">
         <h4>Database Tables</h4>
-        <form class="showForm" id="showForm">
+        <form class="showForm" id="showDatabaseTableForm">
             <table>
                 <tr>
                     <td>
-                        <input type="text">
+                       BUILDING
                     </td>
                     <td>
                         <select>
@@ -68,15 +81,88 @@ body {
                         
                     </td>
                 </tr>
-                
+                 <tr>
+                    <td>
+                       MEDIA
+                    </td>
+                    <td>
+                        <select>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                        
+                    </td>
+                </tr>
+				 <tr>
+                    <td>
+                       ROOM
+                    </td>
+                    <td>
+                        <select>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                        
+                    </td>
+                </tr>
+				 <tr>
+                    <td>
+                       ROOMMEDIA
+                    </td>
+                    <td>
+                        <select>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                        
+                    </td>
+                </tr>
             </table>
             <input type="submit" value="Get Skeletons">
             <input type="reset" value="Reset Skeletons">
         </form>
 
-        <br><br>
+        <br>
 		<hr style="border-top: 1px dashed grey;">
-        <h4>QBE Interface<h4>
+        <h4>QBE Interface</h4>
+		<table class="borderedtables" style="width: 43%;">
+			<tr class="tableheader">
+				<td class="borderedtables">BUILDING</td>
+				<td class="borderedtables">bcode(varchar)</td>
+				<td class="borderedtables">bname(varchar)</td>
+			</tr>
+			<tr class="borderedtables">
+				<td class="borderedtables">test</td>
+				<td class="borderedtables">&nbsp;</td>
+				<td class="borderedtables">&nbsp;</td>
+			</tr>
+		</table>
+			<br>
+		<table class="borderedtables" style="width: 100%;">
+			<tr class="tableheader" >
+				<td class="borderedtables">ROOM</td>
+				<td class="borderedtables">bcode(varchar)</td>
+				<td class="borderedtables">rnumber(varchar)</td>
+				<td class="borderedtables">cap(int)</td>
+				<td class="borderedtables">layout(varchar)</td>
+				<td class="borderedtables">type(enum)</td>
+				<td class="borderedtables">dept(varchar)</td>
+			</tr>
+			<tr class="borderedtables">
+				<td class="borderedtables">test</td>
+				<td class="borderedtables">&nbsp;</td>
+				<td class="borderedtables">&nbsp;</td>
+				<td class="borderedtables">&nbsp;</td>
+				<td class="borderedtables">&nbsp;</td>
+				<td class="borderedtables">&nbsp;</td>
+				<td class="borderedtables">&nbsp;</td>
+			</tr>
+		</table>
+		<p>Condition Box: <input type="text" style="width: 400px"> </p>
+		<input type="submit" value="Run Query">
         <script>
             function showDB(){
                 var text = document.getElementById("showForm");
@@ -100,7 +186,10 @@ body {
             // }
         </script>
 		<hr style="border-top: 1px dashed grey;">
-		<h4>Query Results<h4>
+		<h4>Query Results</h4>
+		<h5>SQL Query</h5>
+		<br><br>
+		
 		<hr style="border-top: 1px dashed grey;">
     </div>
     
