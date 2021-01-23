@@ -9,15 +9,22 @@
 </head>
 <style>
 .content {
-    max-width: 500px;
+    max-width: 80%;
     margin: auto;
 }
 
+h4 {
+	color: #214ED3;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
 </style>
 <body>
+<hr style="height:.5px;background-color:black">
     <div class="content">
-        <p1><b>QBE</b></p1>
-        <br><br>
+        <h4>QBE</h4>
         <form>
             <table>
                 <tr>
@@ -44,8 +51,8 @@
                 </tr>
             </table>
         </form>
-        <br><br>
-        <p1><b>Database Tables</b></p1>
+        <hr style="border-top: 1px dashed grey;">
+        <h4>Database Tables</h4>
         <form class="showForm" id="showForm">
             <table>
                 <tr>
@@ -68,8 +75,8 @@
         </form>
 
         <br><br>
-        <p1><b>QBE Interfaces</b></p1>
-        <p1><b>QBE Interfaces</b></p1>
+		<hr style="border-top: 1px dashed grey;">
+        <h4>QBE Interface<h4>
         <script>
             function showDB(){
                 var text = document.getElementById("showForm");
@@ -92,6 +99,9 @@
             //     document.getElementById("showForm").insertTable().innerHTML = html;
             // }
         </script>
+		<hr style="border-top: 1px dashed grey;">
+		<h4>Query Results<h4>
+		<hr style="border-top: 1px dashed grey;">
     </div>
     
 </body>
