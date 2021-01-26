@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="static/style.css">
     <script src="static/jquery-3.5.1.min.js"></script>
+    <script src="static/query.js"></script>
 </head>
 <style>
 .content {
@@ -66,61 +67,11 @@ body {
         </form>
         <hr style="border-top: 1px dashed grey;">
         <h4>Database Tables</h4>
+
+        
+
         <form class="showForm" id="showDatabaseTableForm">
-            <table>
-                <tr>
-                    <td>
-                       BUILDING
-                    </td>
-                    <td>
-                        <select>
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
-                        
-                    </td>
-                </tr>
-                 <tr>
-                    <td>
-                       MEDIA
-                    </td>
-                    <td>
-                        <select>
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
-                        
-                    </td>
-                </tr>
-				 <tr>
-                    <td>
-                       ROOM
-                    </td>
-                    <td>
-                        <select>
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
-                        
-                    </td>
-                </tr>
-				 <tr>
-                    <td>
-                       ROOMMEDIA
-                    </td>
-                    <td>
-                        <select>
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
-                        
-                    </td>
-                </tr>
-            </table>
+
             <input type="submit" value="Get Skeletons">
             <input type="reset" value="Reset Skeletons">
         </form>
@@ -165,7 +116,7 @@ body {
 		<input type="submit" value="Run Query">
         <script>
             function showDB(){
-                var text = document.getElementById("showForm");
+                var text = document.getElementById("showDatabaseTableForm");
                 if (text.style.display === "none"){
                     text.style.display = "block";
                 } else{

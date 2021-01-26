@@ -13,14 +13,19 @@ $(document).ready(function(){
         
         type:'POST',
         success: function(result){
-            console.log(JSON.stringify(result))
-            data = JSON.stringify(result.data.login)
-            // for (let d in data){
-            //     for(let k in data[d]){
-            //         aa = data[d][k]
-            //     }
-            // }
-            $("#table2").html("<p>"+data+"</p>")
+            data = result.data.login;        
+            var htmlCode = "<table>";
+            arr = [];
+            for(var i = 0; i < data.length; i++){
+                var item = Object.values(data[i]);
+                //arr.push(item);
+                //console.log(arr);
+                
+                 htmlCode+= '<tr><td><b>'+item+":"+'</b></td><td><select><option value="0">0</option><option value="1">1</option>' +
+                 '<option value="2">2</option></select></td></tr>';
+            }
+            htmlCode += "<table>";
+            $("#showDatabaseTableForm").html(htmlCode);
         },
         error: function(error){
             alert("ERROR");
