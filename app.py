@@ -7,9 +7,6 @@ from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 CORS(app)
 
-# @app.route('/')
-# def index():
-#     return 'welcome'
 
 app.add_url_rule('/qbe/', view_func=GraphQLView.as_view('graphql',
                  schema=schema, graphiql=True))

@@ -39,7 +39,8 @@ body {
 <hr style="height:.5px;background-color:black">
     <div class="content">
         <h4>QBE</h4>
-        <form>
+        <form id="form1" method="POST" action="" enctype="">
+            
             <table>
                 <tr>
                     <td>
@@ -48,19 +49,19 @@ body {
                     </td>
                     <td>
                         User <br>
-                        <input type="text">
+                        <input type="text" name="user" id="user" required>
                     </td>
                     <td>
                         Password <br>
-                        <input type="text">
+                        <input type="text" name="pwd" id="pwd" required>
                     </td>
                     <td>
                         Database <br>
-                        <input type="text">
+                        <input type="text" name="db" id="db" required>
                     </td>
                     <td>
                         <br>
-                        <button type="button" id="goBtn" onclick="showDB()">Go</button>
+                        <button type="submit" id="goBtn">Go</button>
                     </td>
                 </tr>
             </table>
@@ -72,25 +73,25 @@ body {
 
         <form class="showForm" id="showDatabaseTableForm">
 
-            <input type="submit" value="Get Skeletons">
-            <input type="reset" value="Reset Skeletons">
+            
         </form>
 
         <br>
 		<hr style="border-top: 1px dashed grey;">
         <h4>QBE Interface</h4>
-		<table class="borderedtables" style="width: 43%;">
+        <div id="interface"> </div>
+		<!-- <table class="borderedtables" style="width: 43%;">
 			<tr class="tableheader">
 				<td class="borderedtables">BUILDING</td>
 				<td class="borderedtables">bcode(varchar)</td>
 				<td class="borderedtables">bname(varchar)</td>
 			</tr>
 			<tr class="borderedtables">
-				<td class="borderedtables">test</td>
+				<td><input type="text"></td>test</td>
 				<td class="borderedtables">&nbsp;</td>
 				<td class="borderedtables">&nbsp;</td>
 			</tr>
-		</table>
+		</table> -->
 			<br>
 		<table class="borderedtables" style="width: 100%;">
 			<tr class="tableheader" >
