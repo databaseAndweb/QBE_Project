@@ -109,70 +109,74 @@ class Queries(graphene.ObjectType):
     
     def resolve_skeletons(self, info,tnames,user,pwd,db):
 
-        #if user =='qbe' and db == 'qbe' and pwd == 'q123':
+        if user =='qbe' and db == 'qbe' and pwd == 'q123':
             
 
 
-        db = mysql.connect(
-            host="localhost",
-            database="qbe",
-            user="qbe",
-            passwd="q123"
-            #auth_plugin='mysql_native_password'
-        )
-        # if user =='qbe' and db == 'qbe' and pwd == 'q123':
-            # query = "SELECT column_name, data_type FROM information_schema.columns WHERE TABLE_NAME = @nm and table_schema = 'qbe' " 
-        query = "SELECT table_name FROM information_schema.tables WHERE table_schema = 'qbe' "            
-        cursor = db.cursor()
-        cursor.execute(query)
-        records = cursor.fetchall()
-        records = [x[0] for x in records]
-        
-        for i in records:
-            tnames.append(i)
-
-        bbb = []
-        item = 'ROOM'
-        #for item in tnames:
-        if item in records:
-
-            query2 = "SELECT t.table_name,  sc.column_name, sc.data_type FROM information_schema.tables t INNER JOIN " + \
-            "information_schema.columns sc ON t.table_schema=sc.table_schema AND t.TABLE_NAME = sc.TABLE_NAME WHERE t.table_schema = 'qbe' and " + \
-            "t.TABLE_NAME = '"+item+"' " 
+            db = mysql.connect(
+                host="localhost",
+                database="qbe",
+                user="qbe",
+                passwd="q123"
+                #auth_plugin='mysql_native_password'
+            )
+            # if user =='qbe' and db == 'qbe' and pwd == 'q123':
+                # query = "SELECT column_name, data_type FROM information_schema.columns WHERE TABLE_NAME = @nm and table_schema = 'qbe' " 
+            query = "SELECT table_name FROM information_schema.tables WHERE table_schema = 'qbe' "            
             cursor = db.cursor()
-            cursor.execute(query2)
-            records2 = cursor.fetchall()
-            print(records2)
-            bbb.append(records2)
+            cursor.execute(query)
+            records = cursor.fetchall()
+            records = [x[0] for x in records]
+            
+            for i in records:
+                tnames.append(i)
+
+            bbb = []
+            #item = 'BUILDING'
+            
+            for item in tnames:
+                if item in records:
+
+                    query2 = "SELECT t.table_name,  sc.column_name, sc.data_type FROM information_schema.tables t INNER JOIN " + \
+                    "information_schema.columns sc ON t.table_schema=sc.table_schema AND t.TABLE_NAME = sc.TABLE_NAME WHERE t.table_schema = 'qbe' and " + \
+                    "t.TABLE_NAME = '"+item+"' " 
+                    cursor = db.cursor()
+                    cursor.execute(query2)
+                    records2 = cursor.fetchall()
+                    #print(records2)
+                    bbb.append(records2)
+                    break
+                else:
+                    return None
+
+            
+            #list1 = list(set([x[0] for x in bbb]))
+            #print(list1)
+            list2 = [el[1:] for el in records2]
+            #print(list2)
+            
+            cursor.close()
+            db.close()
+            skeletons2 = []
+            listChars = []
+            
+            for field, value in list2:
+                res = '{}({})'.format(field,value)
+                listChars.append(res)
+            print(listChars)
+            
+            final = listChars
+            print(final)
+            
+            skeletons2 = [Skeleton(nameAndtype=element) for element in final]
+            # for element in final:
+            #     skeletons2.append(Skeleton(nameAndtype=element))
+
+            
+            
+            return skeletons2
         else:
             return None
-
-        
-        #list1 = list(set([x[0] for x in bbb]))
-        #print(list1)
-        list2 = [el[1:] for el in records2]
-        #print(list2)
-        
-        cursor.close()
-        db.close()
-        skeletons2 = []
-        listChars = []
-        
-        for field, value in list2:
-            res = '{}({})'.format(field,value)
-            listChars.append(res)
-        print(listChars)
-        
-        final = listChars
-        print(final)
-        
-        skeletons2 = [Skeleton(nameAndtype=element) for element in final]
-        # for element in final:
-        #     skeletons2.append(Skeleton(nameAndtype=element))
-
-        
-        
-        return skeletons2
         
 
 
