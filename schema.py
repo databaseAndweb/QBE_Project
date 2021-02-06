@@ -46,7 +46,7 @@ class Queries(graphene.ObjectType):
             dbase.close()
             tables = []
             for record in records:
-                tables.append(Table(table=record))
+                tables.append(Table(table=record[0]))
         
             return tables
         except:
@@ -111,7 +111,7 @@ class Queries(graphene.ObjectType):
                 #auth_plugin='mysql_native_password'
             )
 
-            
+
             print("nhgh hkhk", tabPar)
             print(colPar)
             print(condPar)
